@@ -1,10 +1,10 @@
 // setup variables
 const walkAcceleration = 2.5; // how much is added to the speed each frame
-const gravity = 0.5; // how much is subtracted from speedY each frame
+const gravity = 0.3; // how much is subtracted from speedY each frame
 const friction = 1.5; // how much the player is slowed each frame
-const maxSpeed = 8; // maximum horizontal speed, not vertical
+const maxSpeed = 12; // maximum horizontal speed, not vertical
 const playerJumpStrength = 12; // this is subtracted from the speedY each jump
-const projectileSpeed = 8; // the speed of projectiles
+const projectileSpeed = 4; // the speed of projectiles
 
 /////////////////////////////////////////////////
 //////////ONLY CHANGE ABOVE THIS POINT///////////
@@ -17,7 +17,7 @@ const playerScale = 0.8; //makes the player just a bit smaller. Doesn't affect t
 // Player variables
 const player = {
   x: 50,
-  y: 100,
+  y: 600,
   speedX: 0,
   speedY: 0,
   width: undefined,
@@ -71,10 +71,10 @@ let offsetY = 0;
 // Platform, cannon, projectile, and collectable variables
 let platforms = [];
 let cannons = [];
-const cannonWidth = 118;
-const cannonHeight = 80;
+const cannonWidth = 100;
+const cannonHeight = 100;
 let projectiles = [];
-const defaultProjectileWidth = 24;
+const defaultProjectileWidth = 20;
 const defaultProjectileHeight = defaultProjectileWidth;
 const collectableWidth = 40;
 const collectableHeight = 40;
@@ -91,8 +91,8 @@ let halleImage;
 let animationDetails = {};
 
 var collectableList = {
-  database: { image: "images/collectables/database.png" },
-  diamond: { image: "images/collectables/diamond-head.png" },
+  database: { image: "https://www.straight.com/files/v3/styles/gs_standard/public/2012/10/Ive%20Blue%20photo.jpg?itok=pLC-eqW9g" },
+  diamond: { image: "images/collectables/mario.png" },
   grace: { image: "images/collectables/grace-head.png" },
   kennedi: { image: "images/collectables/kennedi-head.png" },
   max: { image: "images/collectables/max-head.png" },
