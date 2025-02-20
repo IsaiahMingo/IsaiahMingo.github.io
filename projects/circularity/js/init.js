@@ -20,14 +20,25 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         
         // TODO 1 : Declare and initialize our variables
-
+        var circle
+        var circles = []
 
         // TODO 2 : Create a function that draws a circle 
-        
+        function drawCircle() {
+            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
+            physikz.addRandomVelocity(circle, canvas, 5, 5);
+            view.addChild(circle);
+            circles.push(circle); 
+        }
 
         // TODO 3 / 7 : Call the drawCircle() function 
 
+        for (var i = 0; i < 4000; i++){
+            //a piece of code that we want to repeat
+            drawCircle()
+        }
 
+   
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
         ////////////////////////////////////////////////////////////
@@ -39,7 +50,10 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-
+        for (var i = 0; i < circles.length; i++) {
+            physikz.updatePosition(circles[i]);
+            game.checkCirclePosition(circles[i]);
+         }
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
            
@@ -60,14 +74,18 @@ var init = function (window) {
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
             }
-            
+            if ( circle.x < 0 ) {
+                circle.x = canvas.width;
+            }
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            
-
-
-            // YOUR TODO 6 CODE ENDS HERE //////////////////////////
+            if ( circle.y < 0 ) {
+                circle.y = canvas.heigth;
+            }
+          
+        if ( circle.y > canvas.heigth ) {
+            circle.y = 0;
         }
-        
+         } 
         /////////////////////////////////////////////////////////////
         // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
         /////////////////////////////////////////////////////////////
